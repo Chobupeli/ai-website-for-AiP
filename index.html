@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Искусственный интеллект — интерактивный гид</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="nav">
+    <span class="logo">AI<span class="dot">.</span></span>
+    <ul>
+      <li><a href="#about">Что это</a></li>
+      <li><a href="#history">История</a></li>
+      <li><a href="#tech">Технологии</a></li>
+      <li><a href="#demo">Демо</a></li>
+      <li><a href="#quiz">Квиз</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero">
+    <canvas id="neural-bg"></canvas>
+    <div class="hero-content">
+      <p class="tag">интерактивный гид</p>
+      <h1>Искусственный<br><span class="grad">интеллект</span></h1>
+      <p class="subtitle">От идеи Тьюринга до нейросетей, которые пишут код, рисуют и разговаривают.</p>
+      <a href="#about" class="btn">Начать ↓</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2 class="section-title reveal">Что такое ИИ</h2>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="icon">🧠</div>
+        <h3>Определение</h3>
+        <p>ИИ — это область информатики, которая создаёт системы, способные выполнять задачи, требующие человеческого интеллекта: понимание языка, распознавание образов, принятие решений.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon">📈</div>
+        <h3>Как учится</h3>
+        <p>Модель «смотрит» на тысячи примеров, находит закономерности и постепенно уменьшает ошибку. Это называется обучением — по сути, оптимизация функции потерь.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon">🌍</div>
+        <h3>Где применяется</h3>
+        <p>Медицина, транспорт, финансы, игры, творчество, наука. Сегодня ИИ — это не фантастика, а инструмент, который уже вокруг нас.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="history" class="section">
+    <h2 class="section-title reveal">Краткая история</h2>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <span class="tl-year">1950</span>
+        <div class="tl-card">
+          <h4>Тест Тьюринга</h4>
+          <p>Алан Тьюринг публикует статью «Может ли машина мыслить?» и предлагает знаменитый тест.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">1956</span>
+        <div class="tl-card">
+          <h4>Дартмутская конференция</h4>
+          <p>Термин «искусственный интеллект» официально рождается именно здесь.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">1997</span>
+        <div class="tl-card">
+          <h4>Deep Blue побеждает Каспарова</h4>
+          <p>Компьютер IBM впервые обыгрывает действующего чемпиона мира по шахматам.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2012</span>
+        <div class="tl-card">
+          <h4>AlexNet и революция CNN</h4>
+          <p>Свёрточные нейросети обрушивают рекорды распознавания изображений — начинается бум глубокого обучения.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2017</span>
+        <div class="tl-card">
+          <h4>Трансформеры</h4>
+          <p>Статья «Attention Is All You Need» меняет NLP и открывает путь к GPT.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-year">2022</span>
+        <div class="tl-card">
+          <h4>ChatGPT</h4>
+          <p>LLM становятся массовыми: миллионы людей начинают общаться с ИИ каждый день.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH -->
+  <section id="tech" class="section">
+    <h2 class="section-title reveal">Технологии</h2>
+    <p class="hint reveal">Наведи курсор (или тапни) — карточка перевернётся.</p>
+    <div class="grid-3">
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="flip-front"><h3>Нейронные сети</h3><span>основа</span></div>
+          <div class="flip-back"><p>Слои связанных «нейронов», которые преобразуют вход в выход. Универсальный аппроксиматор функций.</p></div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="flip-front"><h3>Машинное обучение</h3><span>обучение на данных</span></div>
+          <div class="flip-back"><p>Классическое ML: регрессия, деревья, SVM, ансамбли. Работает даже на небольших табличных данных.</p></div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="flip-front"><h3>NLP</h3><span>язык</span></div>
+          <div class="flip-back"><p>Обработка естественного языка: перевод, суммаризация, чат-боты, анализ тональности.</p></div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="flip-front"><h3>Computer Vision</h3><span>зрение</span></div>
+          <div class="flip-back"><p>Распознавание лиц, объектов, сегментация, генерация изображений.</p></div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="flip-front"><h3>Обучение с подкреплением</h3><span>reward</span></div>
+          <div class="flip-back"><p>Агент учится через награды и наказания. Так обучают роботов, AlphaGo и игровых ботов.</p></div>
+        </div>
+      </div>
+      <div class="flip reveal">
+        <div class="flip-inner">
+          <div class="flip-front"><h3>Генеративный ИИ</h3><span>новое</span></div>
+          <div class="flip-back"><p>Модели, которые создают текст, код, музыку и картинки: GPT, Diffusion, GAN.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section id="demo" class="section">
+    <h2 class="section-title reveal">Построй свою нейросеть</h2>
+    <p class="hint reveal">Кликай по полю — добавляй нейроны. Они сами свяжутся с ближайшими, а по связям побегут сигналы.</p>
+    <div class="demo-wrap reveal">
+      <canvas id="builder"></canvas>
+      <div class="demo-controls">
+        <span id="neuron-count">нейронов: 0</span>
+        <button id="clear-btn">Очистить</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="section">
+    <h2 class="section-title reveal">ИИ или человек?</h2>
+    <p class="hint reveal">Угадай, кто написал эту фразу.</p>
+    <div class="quiz reveal">
+      <p id="quiz-text">Нажми «Начать»</p>
+      <div class="quiz-buttons">
+        <button id="btn-ai" disabled>🤖 ИИ</button>
+        <button id="btn-human" disabled>🙂 Человек</button>
+      </div>
+      <p id="quiz-result"></p>
+      <div class="quiz-footer">
+        <span id="quiz-score">Счёт: 0 / 0</span>
+        <button id="start-quiz">Начать</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Точно  НЕ Сделано с помощью ИИ)))</p>
+    <p class="muted">© 2025 · GitHub Pages</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
