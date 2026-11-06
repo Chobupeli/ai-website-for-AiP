@@ -4,7 +4,7 @@
 интерактивная нейросеть на canvas и мини-квиз «ИИ или человек?».
 
 ## 🔗 Демо
-https://ТВОЙ_НИК.github.io/ai-website/
+https://Chobupeli.github.io/ai-website/
 
 ## 🛠 Стек
 - HTML5, CSS3 (Grid, Flexbox, анимации)
