@@ -1,190 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Искусственный интеллект — интерактивный гид</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1014">
+  <meta name="description" content="Интерактивная лаборатория об искусственном интеллекте: история, обучение модели, генерация текста и проверка знаний.">
+  <title>AI / За пределами магии</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Навигация -->
-  <nav class="nav">
-    <span class="logo">AI<span class="dot">.</span></span>
-    <ul>
-      <li><a href="#about">Что это</a></li>
-      <li><a href="#history">История</a></li>
-      <li><a href="#tech">Технологии</a></li>
-      <li><a href="#demo">Демо</a></li>
-      <li><a href="#quiz">Квиз</a></li>
-    </ul>
+<a class="skip" href="#main">Перейти к содержанию</a>
+<header class="header">
+  <a class="logo" href="#home" aria-label="AI Lab — на главную"><span class="logo-mark">AI</span><span>BEYOND MAGIC<span class="logo-sub">ИНТЕРАКТИВНАЯ ЛАБОРАТОРИЯ</span></span></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="navigation" type="button">Меню <span>+</span></button>
+  <nav id="navigation" aria-label="Основная навигация">
+    <a href="#map">Карта ИИ</a><a href="#history">История</a><a href="#lab">Лаборатория</a><a href="#language">Текст</a><a href="#quiz">Квиз</a>
   </nav>
-
-  <!-- HERO -->
-  <header id="hero">
-    <canvas id="neural-bg"></canvas>
-    <div class="hero-content">
-      <p class="tag">интерактивный гид</p>
-      <h1>Искусственный<br><span class="grad">интеллект</span></h1>
-      <p class="subtitle">От идеи Тьюринга до нейросетей, которые пишут код, рисуют и разговаривают.</p>
-      <a href="#about" class="btn">Начать ↓</a>
+  <span class="header-status"><i></i> SYSTEM ONLINE</span>
+</header>
+<main id="main">
+<section id="home" class="hero section">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="tiny-square"></span> НЕ МАГИЯ. МАТЕМАТИКА И ДАННЫЕ.</p>
+    <h1>Машина отвечает.<br>Но <span class="accent">откуда</span><br>берётся ответ?</h1>
+    <p class="lead">Загляни за интерфейс искусственного интеллекта. Разбери его на понятные идеи — и обучи свою первую модель прямо здесь.</p>
+    <div class="actions"><a class="button primary" href="#lab">Провести эксперимент <span>↗</span></a><a class="button secondary" href="#map">Сначала разобраться <span>↓</span></a></div>
+    <div class="hero-meta"><span>01 / ИСТОРИЯ</span><span>02 / ЭКСПЕРИМЕНТЫ</span><span>03 / ПРОВЕРКА ЗНАНИЙ</span></div>
+  </div>
+  <div class="hero-art">
+    <div class="art-top"><span>NEURAL FIELD / VISUAL METAPHOR</span><span class="live-dot">LIVE</span></div>
+    <canvas id="network" aria-label="Декоративная анимация сети точек"></canvas>
+    <div class="art-center" aria-hidden="true"><span class="orbit"></span><span class="core">AI</span></div>
+    <div class="art-bottom"><span>ПОВЕДИ КУРСОРОМ ПО СЕТИ</span><span>Это образ, не схема модели</span></div>
+  </div>
+  <div class="hero-footer"><span>SCROLL TO EXPLORE</span><span>↓</span><span>ОТ ЛЮБОПЫТСТВА К ПОНИМАНИЮ</span></div>
+</section>
+<section id="map" class="section">
+  <div class="section-heading"><div><p class="eyebrow">01 / КАРТА ТЕРРИТОРИИ</p><h2>ИИ — не только чат.</h2></div><p>Одна область. Разные задачи.<br>Выбери карточку, чтобы открыть пример.</p></div>
+  <div class="topic-grid">
+    <button class="topic active" data-topic="vision" aria-pressed="true"><span class="topic-number">01</span><span class="topic-icon" aria-hidden="true">◉</span><strong>Увидеть</strong><span>Распознавать изображения</span><span class="topic-arrow">↗</span></button>
+    <button class="topic" data-topic="patterns" aria-pressed="false"><span class="topic-number">02</span><span class="topic-icon" aria-hidden="true">∿</span><strong>Найти связь</strong><span>Изучать закономерности</span><span class="topic-arrow">↗</span></button>
+    <button class="topic" data-topic="actions" aria-pressed="false"><span class="topic-number">03</span><span class="topic-icon" aria-hidden="true">⌘</span><strong>Выбрать ход</strong><span>Планировать действия</span><span class="topic-arrow">↗</span></button>
+    <button class="topic" data-topic="text" aria-pressed="false"><span class="topic-number">04</span><span class="topic-icon" aria-hidden="true">Aa</span><strong>Создать текст</strong><span>Продолжать контекст</span><span class="topic-arrow">↗</span></button>
+  </div>
+  <div class="topic-detail panel" aria-live="polite"><span class="detail-label">ПОД МИКРОСКОПОМ</span><h3 id="topic-title">Распознавание изображений</h3><p id="topic-description">Модель получает числовое представление изображения и ищет признаки, полезные для задачи. Например, учится различать кошек и собак по размеченным примерам. Это не безошибочное «зрение»: необычный ракурс или незнакомые условия могут привести к ошибке.</p><p class="muted" id="topic-example">Пример: классификация фотографии. Результат: оценки для категорий «кошка» и «собака».</p></div>
+  <p class="section-note">Это карта задач, а не строгая классификация. Машинное обучение — часть ИИ; нейросети — один из подходов машинного обучения. Не всякий ИИ является нейросетью.</p>
+</section>
+<section id="history" class="section">
+  <div class="section-heading"><div><p class="eyebrow">02 / ПОВОРОТНЫЕ МОМЕНТЫ</p><h2>До того, как появился чат.</h2></div><p>Не вся история ИИ.<br>Пять остановок, меняющих масштаб.</p></div>
+  <div class="timeline" role="group" aria-label="Выберите историческое событие">
+    <button class="timeline-item active" data-era="0" aria-pressed="true"><span>1956</span><i></i><small>Дартмут</small></button>
+    <button class="timeline-item" data-era="1" aria-pressed="false"><span>1997</span><i></i><small>Deep Blue</small></button>
+    <button class="timeline-item" data-era="2" aria-pressed="false"><span>2012</span><i></i><small>AlexNet</small></button>
+    <button class="timeline-item" data-era="3" aria-pressed="false"><span>2017</span><i></i><small>Transformer</small></button>
+    <button class="timeline-item" data-era="4" aria-pressed="false"><span>2022</span><i></i><small>ChatGPT</small></button>
+  </div>
+  <div class="history-panel panel" aria-live="polite"><div class="history-year" id="era-year">1956</div><div><p class="eyebrow" id="era-tag">НАЧАЛО НАПРАВЛЕНИЯ</p><h3 id="era-title">У идеи появляется имя.</h3><p id="era-text">Летний исследовательский проект в Дартмуте объединил учёных вокруг идеи искусственного интеллекта. Это важная точка становления области, а не момент появления первой «умной машины».</p><div class="history-limit"><span>НЕ ПУТАТЬ</span><p id="era-limit">Название направления не означало, что задача создания универсального интеллекта уже решена.</p></div></div></div>
+</section>
+<section id="lab" class="section">
+  <div class="section-heading"><div><p class="eyebrow">03 / ТВОЯ ПЕРВАЯ МОДЕЛЬ</p><h2>Не рассказывай.<br><span class="accent">Покажи примеры.</span></h2></div><p>Добавь точки двух классов.<br>Модель попробует найти границу.</p></div>
+  <div class="learning-steps"><div><span>01</span><h3>Примеры</h3><p>Данные с известными ответами.</p></div><div><span>02</span><h3>Предсказание</h3><p>Модель оценивает класс точки.</p></div><div><span>03</span><h3>Ошибка</h3><p>Сравниваем оценку с ответом.</p></div><div><span>04</span><h3>Коррекция</h3><p>Меняем параметры. Повторяем.</p></div></div>
+  <div class="lab-grid">
+    <div class="lab-stage panel"><div class="stage-top"><span><i class="tiny-square"></i> CLASSIFICATION SANDBOX</span><span id="point-count">24 ТОЧКИ</span></div>
+      <canvas id="classifier" tabindex="0" aria-label="Поле классификации. Добавляйте точки мышью или касанием. Для работы с клавиатуры используйте кнопку «Добавить точку» ниже."></canvas>
+      <div class="stage-bottom"><span><i class="legend-dot class-a"></i> Класс A</span><span><i class="legend-dot class-b"></i> Класс B</span><span id="canvas-hint">Нажми на поле, чтобы добавить точку</span></div>
     </div>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <h2 class="section-title reveal">Что такое ИИ</h2>
-    <div class="grid-3">
-      <div class="card reveal">
-        <div class="icon">🧠</div>
-        <h3>Определение</h3>
-        <p>ИИ — это область информатики, которая создаёт системы, способные выполнять задачи, требующие человеческого интеллекта: понимание языка, распознавание образов, принятие решений.</p>
-      </div>
-      <div class="card reveal">
-        <div class="icon">📈</div>
-        <h3>Как учится</h3>
-        <p>Модель «смотрит» на тысячи примеров, находит закономерности и постепенно уменьшает ошибку. Это называется обучением — по сути, оптимизация функции потерь.</p>
-      </div>
-      <div class="card reveal">
-        <div class="icon">🌍</div>
-        <h3>Где применяется</h3>
-        <p>Медицина, транспорт, финансы, игры, творчество, наука. Сегодня ИИ — это не фантастика, а инструмент, который уже вокруг нас.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HISTORY -->
-  <section id="history" class="section">
-    <h2 class="section-title reveal">Краткая история</h2>
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <span class="tl-year">1950</span>
-        <div class="tl-card">
-          <h4>Тест Тьюринга</h4>
-          <p>Алан Тьюринг публикует статью «Может ли машина мыслить?» и предлагает знаменитый тест.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <span class="tl-year">1956</span>
-        <div class="tl-card">
-          <h4>Дартмутская конференция</h4>
-          <p>Термин «искусственный интеллект» официально рождается именно здесь.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <span class="tl-year">1997</span>
-        <div class="tl-card">
-          <h4>Deep Blue побеждает Каспарова</h4>
-          <p>Компьютер IBM впервые обыгрывает действующего чемпиона мира по шахматам.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <span class="tl-year">2012</span>
-        <div class="tl-card">
-          <h4>AlexNet и революция CNN</h4>
-          <p>Свёрточные нейросети обрушивают рекорды распознавания изображений — начинается бум глубокого обучения.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <span class="tl-year">2017</span>
-        <div class="tl-card">
-          <h4>Трансформеры</h4>
-          <p>Статья «Attention Is All You Need» меняет NLP и открывает путь к GPT.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <span class="tl-year">2022</span>
-        <div class="tl-card">
-          <h4>ChatGPT</h4>
-          <p>LLM становятся массовыми: миллионы людей начинают общаться с ИИ каждый день.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECH -->
-  <section id="tech" class="section">
-    <h2 class="section-title reveal">Технологии</h2>
-    <p class="hint reveal">Наведи курсор (или тапни) — карточка перевернётся.</p>
-    <div class="grid-3">
-      <div class="flip reveal">
-        <div class="flip-inner">
-          <div class="flip-front"><h3>Нейронные сети</h3><span>основа</span></div>
-          <div class="flip-back"><p>Слои связанных «нейронов», которые преобразуют вход в выход. Универсальный аппроксиматор функций.</p></div>
-        </div>
-      </div>
-      <div class="flip reveal">
-        <div class="flip-inner">
-          <div class="flip-front"><h3>Машинное обучение</h3><span>обучение на данных</span></div>
-          <div class="flip-back"><p>Классическое ML: регрессия, деревья, SVM, ансамбли. Работает даже на небольших табличных данных.</p></div>
-        </div>
-      </div>
-      <div class="flip reveal">
-        <div class="flip-inner">
-          <div class="flip-front"><h3>NLP</h3><span>язык</span></div>
-          <div class="flip-back"><p>Обработка естественного языка: перевод, суммаризация, чат-боты, анализ тональности.</p></div>
-        </div>
-      </div>
-      <div class="flip reveal">
-        <div class="flip-inner">
-          <div class="flip-front"><h3>Computer Vision</h3><span>зрение</span></div>
-          <div class="flip-back"><p>Распознавание лиц, объектов, сегментация, генерация изображений.</p></div>
-        </div>
-      </div>
-      <div class="flip reveal">
-        <div class="flip-inner">
-          <div class="flip-front"><h3>Обучение с подкреплением</h3><span>reward</span></div>
-          <div class="flip-back"><p>Агент учится через награды и наказания. Так обучают роботов, AlphaGo и игровых ботов.</p></div>
-        </div>
-      </div>
-      <div class="flip reveal">
-        <div class="flip-inner">
-          <div class="flip-front"><h3>Генеративный ИИ</h3><span>новое</span></div>
-          <div class="flip-back"><p>Модели, которые создают текст, код, музыку и картинки: GPT, Diffusion, GAN.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEMO -->
-  <section id="demo" class="section">
-    <h2 class="section-title reveal">Построй свою нейросеть</h2>
-    <p class="hint reveal">Кликай по полю — добавляй нейроны. Они сами свяжутся с ближайшими, а по связям побегут сигналы.</p>
-    <div class="demo-wrap reveal">
-      <canvas id="builder"></canvas>
-      <div class="demo-controls">
-        <span id="neuron-count">нейронов: 0</span>
-        <button id="clear-btn">Очистить</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUIZ -->
-  <section id="quiz" class="section">
-    <h2 class="section-title reveal">ИИ или человек?</h2>
-    <p class="hint reveal">Угадай, кто написал эту фразу.</p>
-    <div class="quiz reveal">
-      <p id="quiz-text">Нажми «Начать»</p>
-      <div class="quiz-buttons">
-        <button id="btn-ai" disabled>🤖 ИИ</button>
-        <button id="btn-human" disabled>🙂 Человек</button>
-      </div>
-      <p id="quiz-result"></p>
-      <div class="quiz-footer">
-        <span id="quiz-score">Счёт: 0 / 0</span>
-        <button id="start-quiz">Начать</button>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>Точно  НЕ Сделано с помощью ИИ)))</p>
-    <p class="muted">© 2025 · GitHub Pages</p>
-  </footer>
-
-  <script src="js/script.js"></script>
+    <aside class="lab-controls panel"><p class="eyebrow">ПУЛЬТ УПРАВЛЕНИЯ</p><h3>Обучи. Проверь. Измени.</h3>
+      <label class="field-label" for="dataset">Начальные данные</label><select id="dataset"><option value="easy">Два разделимых облака</option><option value="mixed">Перекрывающиеся облака</option><option value="xor">Шахматные квадранты (XOR)</option></select>
+      <span class="field-label">Действие на поле</span><div class="segmented" role="group" aria-label="Режим добавления точек"><button class="selected" data-mode="a" aria-pressed="true">Класс A</button><button data-mode="b" aria-pressed="false">Класс B</button><button data-mode="test" aria-pressed="false">Проверка</button></div>
+      <button id="add-point" class="button secondary full">Добавить случайную точку <span>+</span></button>
+      <div class="metrics"><div><span>Шаги обучения</span><strong id="epochs">0</strong></div><div><span>Точность на примерах</span><strong id="accuracy">—</strong></div><div><span>Ошибка (loss)</span><strong id="loss">—</strong></div></div>
+      <button id="train" class="button primary full">Обучить модель <span>↗</span></button><button id="reset" class="text-button">Сбросить параметры</button>
+      <p id="lab-status" class="status-message" role="status">Модель ещё не обучена. Нажми «Обучить».</p>
+    </aside>
+  </div>
+  <div class="lab-explanation"><div><h3>Здесь настоящее обучение.</h3><p>Работает маленькая модель — логистическая регрессия с двумя признаками: координатами точки. Она корректирует три параметра с помощью градиентного спуска. Это машинное обучение, но не нейросеть и не аналог ChatGPT.</p></div><div><h3>Где проходит граница возможностей?</h3><p>Эта модель умеет проводить только прямую границу. Попробуй набор XOR: классы стоят по диагонали, и одной прямой их не разделить. Точность на обучающих примерах не доказывает качество на новых данных.</p></div></div>
+</section>
+<section id="language" class="section">
+  <div class="section-heading"><div><p class="eyebrow">04 / СЛЕДУЮЩИЙ ФРАГМЕНТ</p><h2>Ответ собирается<br>шаг за шагом.</h2></div><p>Контекст → вероятности → продолжение.<br>Здесь ты выбираешь следующий шаг.</p></div>
+  <div class="language-grid"><div class="language-console panel"><div class="stage-top"><span>TEXT GENERATION / УЧЕБНАЯ ИЛЛЮСТРАЦИЯ</span><span id="token-step">ШАГ 1 / 3</span></div><div class="generated-text" id="generated-text" aria-live="polite">На ночном небе ярко светит<span class="cursor" aria-hidden="true"></span></div><p class="console-label">ВЫБЕРИ ПРОДОЛЖЕНИЕ</p><div id="token-options" class="token-options"></div><div class="console-footer"><p id="token-feedback" role="status">Это заранее заданные вероятности, не вывод настоящей языковой модели.</p><button id="text-reset" class="text-button">Начать заново ↺</button></div></div><div class="language-explanation"><span class="large-symbol" aria-hidden="true">Aa<span>↗</span></span><h3>Правдоподобие — не истина.</h3><p>Языковая модель оценивает, какие токены могут продолжить контекст. Токен — фрагмент текста: иногда слово, иногда его часть или знак.</p><p>Современные модели учатся на больших объёмах данных. Архитектура Transformer использует механизм внимания, чтобы учитывать связи внутри контекста.</p><p class="callout">Мы показываем целые слова для удобства. Реальная токенизация сложнее, а выбор продолжения не всегда сводится к самому вероятному варианту.</p></div></div>
+</section>
+<section id="limits" class="section">
+  <div class="section-heading"><div><p class="eyebrow">05 / КРИТИЧЕСКОЕ МЫШЛЕНИЕ</p><h2>Уверенный тон.<br>Не обязательно верный ответ.</h2></div><p>Проверь утверждение,<br>а не впечатление от него.</p></div>
+  <div class="claim-grid"><article class="claim panel"><p class="eyebrow">УТВЕРЖДЕНИЕ A</p><h3>«Токен — это всегда одно целое слово. Поэтому сто токенов — ровно сто слов».</h3><p>Звучит понятно. Но корректно ли это?</p><button class="button secondary reveal-claim" aria-expanded="false" aria-controls="claim-a">Проверить утверждение <span>↗</span></button><div id="claim-a" class="claim-answer" hidden><span class="verdict wrong">НЕКОРРЕКТНО</span><p>Токен может быть частью слова или знаком. Число токенов нельзя универсально приравнять к числу слов. Простота объяснения не гарантирует его точности.</p></div></article><article class="claim panel"><p class="eyebrow">УТВЕРЖДЕНИЕ B</p><h3>«Модель правильно классифицировала все учебные примеры. Значит, она никогда не ошибётся».</h3><p>Высокая метрика — ещё не вся картина.</p><button class="button secondary reveal-claim" aria-expanded="false" aria-controls="claim-b">Проверить утверждение <span>↗</span></button><div id="claim-b" class="claim-answer" hidden><span class="verdict wrong">ВЫВОД НЕ ОБОСНОВАН</span><p>Нужно оценить модель на данных, которые она не использовала при обучении. Даже хорошая проверка не гарантирует безошибочность в любых условиях.</p></div></article></div>
+  <p class="section-note">Утверждения выше составлены для упражнения, а не взяты из реального диалога с ИИ. Языковые модели могут генерировать фактические ошибки: проверяй важные ответы по независимым источникам.</p>
+</section>
+<section id="quiz" class="section">
+  <div class="quiz-grid"><div><p class="eyebrow">06 / ПРОВЕРКА ПОНИМАНИЯ</p><h2>Магии стало<br><span class="accent">чуть меньше?</span></h2><p class="lead">Пять вопросов. Не на память о датах — на понимание того, что происходит внутри.</p><div class="quiz-decoration" aria-hidden="true">?<span>KNOWLEDGE CHECK</span></div></div><div class="quiz-panel panel"><div class="stage-top"><span id="quiz-progress">ВОПРОС 1 / 5</span><span id="quiz-score">0 ВЕРНЫХ</span></div><div class="progress-track"><span id="quiz-bar"></span></div><h3 id="quiz-question"></h3><div id="quiz-options" class="quiz-options"></div><div id="quiz-explanation" class="quiz-explanation" role="status"></div><button id="quiz-next" class="button primary full" hidden>Следующий вопрос <span>→</span></button></div></div>
+</section>
+<section id="about" class="section about-section"><div><p class="eyebrow">ПРОЕКТ / ВЕРСИЯ 0.1</p><h2>Понимание вместо мистики.</h2><p>Учебный интерактивный сайт об искусственном интеллекте. Все демонстрации работают в браузере; данные лаборатории остаются в текущей вкладке и не отправляются на сервер. После обновления страницы эксперименты сбрасываются.</p><p class="muted">Автор: добавь своё имя · Учебное заведение: добавь название</p></div><div class="sources"><h3>Изучить глубже ↗</h3><a href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer">Google / Machine Learning Crash Course <span>↗</span></a><a href="https://developers.google.com/machine-learning/crash-course/llm" target="_blank" rel="noopener noreferrer">Google / Языковые модели <span>↗</span></a><a href="https://www.livescience.com/technology/artificial-intelligence/12-game-changing-moments-in-the-history-of-ai" target="_blank" rel="noopener noreferrer">Live Science / Поворотные моменты истории <span>↗</span></a><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">Attention Is All You Need / Статья 2017 года <span>↗</span></a></div></section>
+</main>
+<footer class="footer"><a class="logo" href="#home"><span class="logo-mark">AI</span><span>BEYOND MAGIC</span></a><span>СОЗДАНО, ЧТОБЫ РАЗОБРАТЬСЯ.</span><a href="#home">Наверх ↑</a></footer>
+<noscript><div class="noscript">Для интерактивных экспериментов включи JavaScript. Основной текст сайта доступен и без него.</div></noscript>
 </body>
 </html>
